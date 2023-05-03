@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+docker build -t media .
+docker run -itd -v/mnt:/mnt -v/home:/home --name media media
+alias media='docker exec -it -u$(id -u):$(id -g) -w"$PWD" media'
