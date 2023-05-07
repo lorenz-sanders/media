@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-docker build -t media .
+docker build -t media --build-arg username=$(whoami) --build-arg user_uid=$(id -u) --build-arg user_gid=$(id -g) .
 docker run -itd -v/mnt:/mnt -v/home:/home --name media media
-alias media='docker exec -it -u$(id -u):$(id -g) -w"$PWD" media'
+alias media='docker exec -it -w"$PWD" media'
